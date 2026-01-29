@@ -135,7 +135,3 @@ El autor no se hace responsable del mal uso de esta herramienta. Se recomienda s
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
-
-💡 **Tip extra para ti, Brian:**
-
-Como el README menciona requirements.txt, asegúrate de generarlo si no lo tienes. Corre esto en tu terminal:
