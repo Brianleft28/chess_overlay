@@ -19,13 +19,12 @@ def mouse_callback(event, x, y, flags, param):
 def main():
     print("--- MODO CALIBRACIÓN MANUAL ---")
     print("1. Se abrirá una captura estática de tu pantalla.")
-    print("2. Haz CLIC en la esquina SUPERIOR IZQUIERDA del tablero (Torre a8).")
-    print("3. Haz CLIC en la esquina INFERIOR DERECHA del tablero (Torre h1).")
+    print("2. Haz CLIC en la esquina SUPERIOR IZQUIERDA de la región que quieras calibrar.")
+    print("3. Haz CLIC en la esquina INFERIOR DERECHA de la región.")
     print("4. Presiona 'q' para calcular y salir.\n")
 
-    print("--- MODO CALIBRACIÓN ---")
     print("TIENES 3 SEGUNDOS PARA MINIMIZAR ESTA TERMINAL...")
-    time.sleep(3) 
+    time.sleep(3)
     
     with mss.mss() as sct:
         # Capturamos TODA la pantalla (monitor 1)
@@ -58,18 +57,13 @@ def main():
                 left = min(x1, x2)
                 width = abs(x1 - x2)
                 height = abs(y1 - y2)
-                
-                print("\n" + "="*40)
-                print("¡CALIBRACIÓN COMPLETADA!")
-                print("Copia y pega esto en tu src/config.py:")
-                print("="*40)
-                print(f"BOARD_REGION = {{")
-                print(f'    "top": {top},')
-                print(f'    "left": {left},')
-                print(f'    "width": {width},')
-                print(f'    "height": {height}')
-                print(f"}}")
-                print("="*40)
+                # Imprimir solo el objeto dict, sin nombre ni texto adicional
+                print({
+                    "top": top,
+                    "left": left,
+                    "width": width,
+                    "height": height
+                })
                 break
 
     cv2.destroyAllWindows()

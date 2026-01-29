@@ -61,6 +61,24 @@ Søren Mirror es una herramienta avanzada de "Realidad Aumentada" para el escrit
 
 Antes de la primera ejecución, el bot necesita saber en qué parte de tu pantalla está el tablero.
 
+
+### Herramienta de Calibración Manual (`get_coords.py`)
+
+Para calibrar cualquier región de la pantalla (tablero, reloj, etc.), ejecuta:
+
+```bash
+python src/get_coords.py
+```
+
+1. Se abrirá una captura de pantalla.
+2. Haz clic en la esquina superior izquierda y luego en la inferior derecha de la región que quieras calibrar.
+3. Presiona `q` para finalizar.
+4. El script imprimirá un objeto con las coordenadas (top, left, width, height) listo para copiar y pegar en `src/config.py`.
+
+Puedes usarlo para obtener fácilmente las coordenadas de `BOARD_REGION`, `CLOCK_OPPONENT`, `CLOCK_PLAYER` u otras regiones.
+
+---
+
 1. Abre tu navegador en la página de juego (ej. Chess.com) y ajusta el zoom al 100%.
 2. Edita el archivo `src/config.py` con las coordenadas de tu monitor para:
    - `BOARD_REGION`: El área del tablero (x, y, width, height).
@@ -121,7 +139,3 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 💡 **Tip extra para ti, Brian:**
 
 Como el README menciona requirements.txt, asegúrate de generarlo si no lo tienes. Corre esto en tu terminal:
-
-```bash
-pip freeze > requirements.txt
-```
